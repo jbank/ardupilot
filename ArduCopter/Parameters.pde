@@ -402,8 +402,10 @@ const AP_Param::Info var_info[] PROGMEM = {
 
     // @Param: RC_FEEL_RP
     // @DisplayName: RC Feel Roll/Pitch
-    // @Description: RC feel for roll/pitch which controls vehicle response to user input with 0 being extremely soft and 100 begin crisp
-    // @User: Advanced
+    // @Description: RC feel for roll/pitch which controls vehicle response to user input with 0 being extremely soft and 100 being crisp
+    // @Range: 0 100
+    // @Increment: 1
+    // @User: Standard
     // @Values: 0:Very Soft, 25:Soft, 50:Medium, 75:Crisp, 100:Very Crisp
     GSCALAR(rc_feel_rp, "RC_FEEL_RP",  RC_FEEL_RP_VERY_CRISP),
 
@@ -903,16 +905,16 @@ const AP_Param::Info var_info[] PROGMEM = {
     // @Path: ../libraries/AC_WPNav/AC_WPNav.cpp
     GOBJECT(wp_nav, "WPNAV_",       AC_WPNav),
 
-    // @Group: WPNAV_
+    // @Group: CIRCLE_
     // @Path: ../libraries/AC_WPNav/AC_Circle.cpp
     GOBJECT(circle_nav, "CIRCLE_",  AC_Circle),
 
 #if FRAME_CONFIG == HELI_FRAME
-    // @Group: ATCON_
+    // @Group: ATC_
     // @Path: ../libraries/AC_AttitudeControl/AC_AttitudeControl_Heli.cpp
     GOBJECT(attitude_control, "ATC_", AC_AttitudeControl_Heli),
 #else
-    // @Group: ATCON_
+    // @Group: ATC_
     // @Path: ../libraries/AC_AttitudeControl/AC_AttitudeControl.cpp
     GOBJECT(attitude_control, "ATC_", AC_AttitudeControl),
 #endif
@@ -960,7 +962,7 @@ const AP_Param::Info var_info[] PROGMEM = {
     GOBJECT(BoardConfig,            "BRD_",       AP_BoardConfig),    
 
 #if SPRAYER == ENABLED
-    // @Group: SPRAYER_
+    // @Group: SPRAY_
     // @Path: ../libraries/AC_Sprayer/AC_Sprayer.cpp
     GOBJECT(sprayer,                "SPRAY_",       AC_Sprayer),
 #endif
